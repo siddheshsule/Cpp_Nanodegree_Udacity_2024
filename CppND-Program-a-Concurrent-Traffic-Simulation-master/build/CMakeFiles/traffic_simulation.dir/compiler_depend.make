@@ -323,7 +323,11 @@ CMakeFiles/traffic_simulation.dir/src/Graphics.cpp.o: ../src/Graphics.cpp \
   /usr/include/c++/11/future \
   /usr/include/c++/11/condition_variable \
   /usr/include/c++/11/atomic \
-  /usr/include/c++/11/bits/atomic_futex.h
+  /usr/include/c++/11/bits/atomic_futex.h \
+  ../src/TrafficLight.h \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc
 
 CMakeFiles/traffic_simulation.dir/src/Intersection.cpp.o: ../src/Intersection.cpp \
   /usr/include/stdc-predef.h \
@@ -585,6 +589,10 @@ CMakeFiles/traffic_simulation.dir/src/Intersection.cpp.o: ../src/Intersection.cp
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   ../src/TrafficObject.h \
   ../src/Intersection.h \
+  ../src/TrafficLight.h \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
   ../src/Vehicle.h
 
 CMakeFiles/traffic_simulation.dir/src/Street.cpp.o: ../src/Street.cpp \
@@ -815,6 +823,10 @@ CMakeFiles/traffic_simulation.dir/src/Street.cpp.o: ../src/Street.cpp \
   /usr/include/c++/11/atomic \
   /usr/include/c++/11/bits/atomic_futex.h \
   /usr/include/c++/11/bits/std_function.h \
+  ../src/TrafficLight.h \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
   ../src/Street.h
 
 CMakeFiles/traffic_simulation.dir/src/TrafficLight.cpp.o: ../src/TrafficLight.cpp \
@@ -1037,6 +1049,10 @@ CMakeFiles/traffic_simulation.dir/src/TrafficLight.cpp.o: ../src/TrafficLight.cp
   /usr/include/c++/11/bit \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/pstl/execution_defs.h \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/ctime \
+  /usr/include/c++/11/bits/parse_numbers.h \
   ../src/TrafficLight.h \
   /usr/include/c++/11/mutex \
   /usr/include/c++/11/tuple \
@@ -1045,10 +1061,6 @@ CMakeFiles/traffic_simulation.dir/src/TrafficLight.cpp.o: ../src/TrafficLight.cp
   /usr/include/c++/11/array \
   /usr/include/c++/11/bits/uses_allocator.h \
   /usr/include/c++/11/bits/invoke.h \
-  /usr/include/c++/11/chrono \
-  /usr/include/c++/11/ratio \
-  /usr/include/c++/11/ctime \
-  /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/bits/std_mutex.h \
   /usr/include/c++/11/bits/unique_lock.h \
   /usr/include/c++/11/deque \
@@ -1520,6 +1532,10 @@ CMakeFiles/traffic_simulation.dir/src/TrafficSimulator-Final.cpp.o: ../src/Traff
   /usr/include/c++/11/atomic \
   /usr/include/c++/11/bits/atomic_futex.h \
   /usr/include/c++/11/bits/std_function.h \
+  ../src/TrafficLight.h \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
   ../src/Graphics.h \
   /usr/include/opencv4/opencv2/core.hpp \
   /usr/include/opencv4/opencv2/core/cvdef.h \
@@ -1872,6 +1888,10 @@ CMakeFiles/traffic_simulation.dir/src/Vehicle.cpp.o: ../src/Vehicle.cpp \
   /usr/include/c++/11/atomic \
   /usr/include/c++/11/bits/atomic_futex.h \
   /usr/include/c++/11/bits/std_function.h \
+  ../src/TrafficLight.h \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
   ../src/Vehicle.h
 
 
@@ -1880,12 +1900,6 @@ CMakeFiles/traffic_simulation.dir/src/Vehicle.cpp.o: ../src/Vehicle.cpp \
 ../src/TrafficSimulator-Final.cpp:
 
 ../src/TrafficObject.cpp:
-
-/usr/include/c++/11/bits/deque.tcc:
-
-/usr/include/c++/11/deque:
-
-../src/TrafficLight.h:
 
 ../src/Street.h:
 
@@ -1898,6 +1912,12 @@ CMakeFiles/traffic_simulation.dir/src/Vehicle.cpp.o: ../src/Vehicle.cpp \
 /usr/include/c++/11/random:
 
 ../src/Intersection.cpp:
+
+/usr/include/c++/11/bits/deque.tcc:
+
+/usr/include/c++/11/deque:
+
+../src/TrafficLight.h:
 
 /usr/include/c++/11/atomic:
 

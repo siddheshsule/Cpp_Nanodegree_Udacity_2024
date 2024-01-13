@@ -1,12 +1,42 @@
 # CPPND: Capstone Snake Game Example
 
-This is a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
+This is a repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
 
-<img src="snake_game.gif"/>
+<img src="Snake_game.gif"/>
 
-The Capstone Project gives you a chance to integrate what you've learned throughout this program. This project will become an important part of your portfolio to share with current and future colleagues and employers.
+The Capstone Project gave me a chance to integrate what I have learned throughout this program.
 
-In this project, you can build your own C++ application or extend this Snake game, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
+In this project, I have extended the functionality and performance of the Snake Game.
+
+## Summary of added features based on Ruberic points provided by Udacity
+1) The submission must compile and run without errors on the Udacity project workspace
+   * The submission is compiles and runs without errors or warnings.
+3) The project accepts user input and processes the input.
+   * The Project accepts user inputs in the form of direction key entries to run the snake.
+5) The project uses data structures and immutable variables.
+   * Use of vectors is made where possible. 
+7) One or more classes are added to the project with appropriate access specifiers for class members.
+   * The project is developed based on OOP principles.
+10) The project makes use of references in function declarations.
+   * References are used where possible.
+12) The project uses scope / Resource Acquisition Is Initialization (RAII) where appropriate.
+   * See Snake.cpp
+13) The project follows the Rule of 5.
+   * See Snake.cpp
+14) The project uses move semantics to move data instead of copying it, where possible.
+   * See Snake.cpp
+15) The project uses smart pointers instead of raw pointers.
+   * See Snake.cpp and Game.cpp
+16) The project uses multithreading.
+   * See Game.cpp
+17) A mutex or lock is used in the project.
+   * See Game.cpp
+
+## Additional functionality
+1) A separate label for "Level" is now introduced. The Level increases when the snake eats food in the multiple of 5.
+2) Also, the speed of the snake increases with Level now and not with every food.
+3) The Screen boundary is the wall and the Game is Over if the Snake hits it.
+...There is plenty of scope to add more features.
 
 ## Dependencies for Running Locally
 * cmake >= 3.7

@@ -1,9 +1,13 @@
 #include "game.h"
 #include <iostream>
 #include "SDL.h"
+#include <thread>
+#include <mutex>
 
-Game::Game(std::size_t grid_width, std::size_t grid_height)
-    : snake(grid_width, grid_height),
+std::mutex mtx;
+
+Game::Game(std::size_t screen_width, std::size_t screen_height, std::size_t grid_width, std::size_t grid_height)
+    : snake(screen_width, screen_height, grid_width, grid_height),
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)) {
@@ -19,12 +23,20 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   int frame_count = 0;
   bool running = true;
 
+  // Introducing thread initialization
+  std::thread input_thread([&] {
+    while (running) {
+      controller.HandleInput(running, snake);
+    }
+  });
+
+
   while (running) {
     frame_start = SDL_GetTicks();
-
-    // Input, Update, Render - the main game loop.
-    controller.HandleInput(running, snake);
     Update();
+
+    // Apply lock before rendering to avoid data races
+    std::lock_guard<std::mutex> lock(mtx);
     renderer.Render(snake, food);
 
     frame_end = SDL_GetTicks();
@@ -36,7 +48,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 
     // After every second, update the window title.
     if (frame_end - title_timestamp >= 1000) {
-      renderer.UpdateWindowTitle(score, frame_count);
+      renderer.UpdateWindowTitle(score, gameLevel ,frame_count);
       frame_count = 0;
       title_timestamp = frame_end;
     }
@@ -48,6 +60,8 @@ void Game::Run(Controller const &controller, Renderer &renderer,
       SDL_Delay(target_frame_duration - frame_duration);
     }
   }
+
+  input_thread.join();
 }
 
 void Game::PlaceFood() {
@@ -57,6 +71,8 @@ void Game::PlaceFood() {
     y = random_h(engine);
     // Check that the location is not occupied by a snake item before placing
     // food.
+
+    std::lock_guard<std::mutex> lock(mtx);
     if (!snake.SnakeCell(x, y)) {
       food.x = x;
       food.y = y;
@@ -74,14 +90,22 @@ void Game::Update() {
   int new_y = static_cast<int>(snake.head_y);
 
   // Check if there's food over here
+  //std::lock_guard<std::mutex> lock(mtx); // This lock hangs the game!
   if (food.x == new_x && food.y == new_y) {
     score++;
     PlaceFood();
     // Grow snake and increase speed.
     snake.GrowBody();
-    snake.speed += 0.02;
+
+    if (snake.size % 10 == 5 || snake.size % 10 == 0) {
+      snake.speed += 0.05;
+      gameLevel++;
+    }
   }
 }
 
 int Game::GetScore() const { return score; }
 int Game::GetSize() const { return snake.size; }
+
+
+

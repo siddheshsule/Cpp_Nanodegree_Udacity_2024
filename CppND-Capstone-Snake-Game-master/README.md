@@ -2,7 +2,7 @@
 
 This is a repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
 
-<img src="Snake_game.gif"/>
+<img src="snake_game2.gif"/>
 
 The Capstone Project gave me a chance to integrate what I have learned throughout this program.
 
@@ -35,7 +35,8 @@ In this project, I have extended the functionality and performance of the Snake 
 ## Additional functionality
 1) A separate label for "Level" is now introduced. The Level increases when the snake eats food in the multiple of 5.
 2) Also, the speed of the snake increases with Level now and not with every food.
-3) The Screen boundary is the wall and the Game is Over if the Snake hits it.
+3) A bonus food is now added which is available for 10 seconds and eating it can increase the speed of the snake and its length.
+4) The Screen boundary is the wall and the Game is Over if the Snake hits it.
 ...There is plenty of scope to add more features.
 
 ## Dependencies for Running Locally

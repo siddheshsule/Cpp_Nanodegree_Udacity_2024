@@ -2,7 +2,9 @@
 #define GAME_H
 
 #include <random>
+#include <thread>
 #include "SDL.h"
+#include <condition_variable>
 #include "controller.h"
 #include "renderer.h"
 #include "snake.h"
@@ -19,16 +21,23 @@ class Game {
  private:
   Snake snake;
   SDL_Point food;
+  SDL_Point bonus_food;
   int gameLevel = 1;
+  bool bonus_food_placed = true;
+
 
   std::random_device dev;
   std::mt19937 engine;
   std::uniform_int_distribution<int> random_w;
   std::uniform_int_distribution<int> random_h;
+  std::thread bonusFoodThread;
+  std::condition_variable conditon_var;
 
   int score{0};
 
-  bool GameOver();
+  void ResetBonusFood();
+  void PlaceBonusFood();
+  void BonusFoodTimer();
   void PlaceFood();
   void Update();
 };

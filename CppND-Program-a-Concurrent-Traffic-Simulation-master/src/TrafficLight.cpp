@@ -63,7 +63,7 @@ void TrafficLight::ToggleTrafficLightPhase() {
     }
 }
 
-int TrafficLight::getRandomCycleDuration() {
+float TrafficLight::getRandomCycleDuration() {
     std::random_device rand;
     std::mt19937 gen(rand());
     std::uniform_int_distribution<int> dis(4000, 6000);
@@ -71,7 +71,7 @@ int TrafficLight::getRandomCycleDuration() {
 }
 
 void TrafficLight::cycleThroughPhases() {
-    int cycleDuration = getRandomCycleDuration();
+    float cycleDuration = getRandomCycleDuration();
     auto startTime = std::chrono::steady_clock::now();
     while (true) {
         // Measure the time between two loop cycles

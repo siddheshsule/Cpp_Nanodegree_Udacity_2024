@@ -60,7 +60,7 @@ public:
     void waitForGreen();
     void simulate();
     void ToggleTrafficLightPhase();
-    int getRandomCycleDuration();
+    float getRandomCycleDuration();
 
 
 private:
@@ -73,8 +73,6 @@ private:
     // and use it within the infinite loop to push each new TrafficLightPhase into it by calling 
     // send in conjunction with move semantics.
 
-    std::condition_variable _condition;
-    std::mutex _mutex;
     MessageQueue<TrafficLightPhase> _queue;
 };
 
